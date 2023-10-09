@@ -61,3 +61,90 @@ foreach ($napok as $nyelv => $week){
 }
 
 echo '<br><br>';
+
+//4. feladat
+function atalakit_array_map($tomb, $mod) {
+    if ($mod === "kisbetus") {
+        return array_map('strtolower', $tomb);
+    } elseif ($mod === "nagybetus") {
+        return array_map('strtoupper', $tomb);
+    }
+}
+
+$szinek = array('A' => 'Kek', 'B' => 'Zold', 'c' => 'Piros');
+
+$szinek_kisbetus = atalakit_array_map($szinek, "kisbetus");
+
+$szinek_nagybetus = atalakit_array_map($szinek, "nagybetus");
+
+print_r($szinek_kisbetus);
+print_r($szinek_nagybetus);
+
+//5. feladat
+
+class BevasarloLista
+{
+    private $lista = [];
+
+    // Elem hozzáadása a bevásárlólistához
+    public function hozzaadElem($nev, $mennyiseg, $egysegar)
+    {
+        $this->lista[] = ["nev" => $nev, "mennyiseg" => $mennyiseg, "egysegar" => $egysegar];
+    }
+
+    // Elem eltávolítása a bevásárlólistáról név alapján
+    public function eltavolitElem($nev)
+    {
+        foreach ($this->lista as $index => $elem) {
+            if ($elem["nev"] === $nev) {
+                unset($this->lista[$index]);
+                return true;
+            }
+        }
+        return false; // Ha nem található az elem a listán
+    }
+
+    // Bevásárlólista elemek kiírása
+    public function kiir()
+    {
+        foreach ($this->lista as $elem) {
+            echo "Név: {$elem['nev']}, Mennyiség: {$elem['mennyiseg']}, Egységár: {$elem['egysegar']} \n";
+        }
+    }
+
+    // Összköltség kiszámítása
+    public function osszKoltseg()
+    {
+        $osszeg = 0;
+        foreach ($this->lista as $elem) {
+            $osszeg += $elem['mennyiseg'] * $elem['egysegar'];
+        }
+        return $osszeg;
+    }
+}
+
+// Példa használat:
+$bevasarloLista = new BevasarloLista();
+
+// Elemek hozzáadása
+$bevasarloLista->hozzaadElem("Kenyer", 2, 8.5);
+$bevasarloLista->hozzaadElem("Viz", 1, 2.5);
+
+// Bevásárlólista kiírása
+echo "Bevásárlólista:\n";
+$bevasarloLista->kiir();
+
+// Összköltség kiszámítása
+echo "\nÖsszköltség: " . $bevasarloLista->osszKoltseg() . "\n";
+
+// Elem eltávolítása (példa)
+$bevasarloLista->eltavolitElem("Kenyer");
+
+// Frissített bevásárlólista kiírása
+echo "\nFrissített bevásárlólista:\n";
+$bevasarloLista->kiir();
+
+// Frissített összköltség kiszámítása
+echo "\nFrissített összköltség: " . $bevasarloLista->osszKoltseg() . "\n";
+
+
