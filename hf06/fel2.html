@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <title>Regisztracios urlap</title>
+</head>
+<body>
+
+<h2>Regisztracios urlap</h2>
+
+<form method="post" action="feldolgozo2.php">
+  <label for="nev">Nev:</label>
+  <input type="text" id="nev" name="nev" required><br><br>
+
+  <label for="email">E-mail cim:</label>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="jelszo">Jelszo:</label>
+  <input type="password" id="jelszo" name="jelszo" required><br><br>
+
+  <label for="jelszo_megerositese">Jelszo megerositese:</label>
+  <input type="password" id="jelszo_megerositese" name="jelszo_megerositese" required><br><br>
+
+  <label for="szuletesi_datum">Szuletesi datum:</label>
+  <input type="date" id="szuletesi_datum" name="szuletesi_datum" required><br><br>
+
+  <label>Nem:</label>
+  <input type="radio" id="ferfi" name="nem" value="ferfi" required>
+  <label for="ferfi">Ferfi</label>
+  <input type="radio" id="no" name="nem" value="no" required>
+  <label for="no">No</label>
+  <input type="radio" id="egyeb" name="nem" value="egyeb" required>
+  <label for="egyeb">Egyeb</label><br><br>
+
+  <label>Erdeklodesi teruletek:</label><br>
+  <input type="checkbox" id="sport" name="erdeklodes[]" value="sport">
+  <label for="sport">Sport</label><br>
+  <input type="checkbox" id="muveszet" name="erdeklodes[]" value="muveszet">
+  <label for="muveszet">Muveszet</label><br>
+  <input type="checkbox" id="tudomany" name="erdeklodes[]" value="tudomany">
+  <label for="tudomany">Tudomany</label><br><br>
+
+  <label for="orszag">Orszag:</label>
+  <select id="orszag" name="orszag" required>
+    <option value="magyarorszag">Magyarorszag</option>
+    <option value="romania">Romania</option>
+    <option value="szlovakia">Szlovakia</option>
+    <option value="szerbia">Szerbia</option>
+  </select><br><br>
+
+  <input type="submit" value="Regisztracio">
+</form>
+
+</body>
+</html>
